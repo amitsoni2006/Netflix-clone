@@ -1,0 +1,762 @@
+/* Netflix-like styling */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #111;
+  color: white;
+  font-family: 'Helvetica Neue', 'Segoe UI', Roboto, sans-serif;
+  overflow-x: hidden;
+}
+
+.navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background: linear-gradient(to bottom, rgba(0,0,0,0.7), transparent);
+  padding: 20px 50px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 1000;
+}
+
+.logo {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #e50914;
+  cursor: pointer;
+  letter-spacing: -0.05em;
+  text-shadow: 0 0 10px rgba(229, 9, 20, 0.5);
+}
+
+.nav-links {
+  display: flex;
+  gap: 20px;
+}
+
+.nav-links a {
+  color: white;
+  text-decoration: none;
+  font-size: 0.9rem;
+}
+
+.nav-links a:hover {
+  color: #ccc;
+}
+
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.search-input {
+  background: rgba(255,255,255,0.1);
+  border: 1px solid rgba(255,255,255,0.3);
+  border-radius: 4px;
+  padding: 8px 12px;
+  color: white;
+  outline: none;
+}
+
+.search-input::placeholder {
+  color: rgba(255,255,255,0.7);
+}
+
+.profile {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  cursor: pointer;
+}
+
+.profile-avatar {
+  border-radius: 4px;
+}
+
+.profile-arrow {
+  color: white;
+  font-size: 0.8rem;
+}
+
+.profile-dropdown {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  background: #000;
+  border: 1px solid #333;
+  border-radius: 4px;
+  padding: 10px 0;
+  min-width: 150px;
+  z-index: 1001;
+}
+
+.profile-dropdown a {
+  display: block;
+  color: white;
+  text-decoration: none;
+  padding: 8px 15px;
+  font-size: 0.9rem;
+}
+
+.profile-dropdown a:hover {
+  background: #333;
+}
+
+.nav-links a.active {
+  color: #fff;
+  font-weight: bold;
+}
+
+.add-btn, .remove-btn {
+  background: rgba(255,255,255,0.8);
+  color: black;
+  border: none;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  font-size: 1.2rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.add-btn:hover, .remove-btn:hover {
+  background: white;
+}
+
+.login-page, .signup-page {
+  height: 100vh;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.login-bg img, .signup-bg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+}
+
+.login-overlay, .signup-overlay {
+  background: rgba(0,0,0,0.7);
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.login-form, .signup-form {
+  background: rgba(0,0,0,0.8);
+  padding: 60px 68px;
+  border-radius: 4px;
+  width: 100%;
+  max-width: 450px;
+  color: white;
+}
+
+.login-form h1, .signup-form h1 {
+  font-size: 2rem;
+  margin-bottom: 28px;
+}
+
+.login-form input, .signup-form input {
+  width: 100%;
+  padding: 16px;
+  margin-bottom: 16px;
+  border: none;
+  border-radius: 4px;
+  background: #333;
+  color: white;
+  font-size: 1rem;
+}
+
+.login-form input::placeholder, .signup-form input::placeholder {
+  color: #8c8c8c;
+}
+
+.login-form button, .signup-form button {
+  width: 100%;
+  padding: 16px;
+  background: #e50914;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  margin-bottom: 16px;
+}
+
+.login-form button:hover, .signup-form button:hover {
+  background: #f40612;
+}
+
+.login-footer, .signup-footer {
+  font-size: 0.9rem;
+  color: #8c8c8c;
+}
+
+.login-footer span, .signup-footer span {
+  color: white;
+  cursor: pointer;
+}
+
+.login-footer span:hover, .signup-footer span:hover {
+  text-decoration: underline;
+}
+
+.account-page, .help-page {
+  background: #111;
+  color: white;
+  min-height: 100vh;
+  padding: 20px;
+}
+
+.account-header, .help-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.back-btn {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 1.5rem;
+  cursor: pointer;
+  margin-right: 20px;
+}
+
+.account-content, .help-content {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.profile-section {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.profile-avatar-large-container {
+  position: relative;
+  display: inline-block;
+}
+
+.profile-avatar-large {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.change-avatar-btn {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  background: #e50914;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+  font-size: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.change-avatar-btn:hover {
+  background: #f40612;
+}
+
+.account-details h3 {
+  margin-bottom: 20px;
+}
+
+.detail-item {
+  display: flex;
+  justify-content: space-between;
+  padding: 15px 0;
+  border-bottom: 1px solid #333;
+}
+
+.detail-item input {
+  background: #333;
+  border: 1px solid #555;
+  color: white;
+  padding: 5px;
+  border-radius: 4px;
+}
+
+.account-actions {
+  margin-top: 20px;
+}
+
+.account-actions button {
+  background: #e50914;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-right: 10px;
+}
+
+.account-actions button:hover {
+  background: #f40612;
+}
+
+.help-section {
+  margin-bottom: 40px;
+}
+
+.faq-item {
+  margin-bottom: 20px;
+}
+
+.faq-item h3 {
+  margin-bottom: 10px;
+}
+
+.contact-section h2 {
+  margin-bottom: 20px;
+}
+
+.contact-section input, .contact-section textarea {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  background: #333;
+  border: 1px solid #555;
+  color: white;
+  border-radius: 4px;
+}
+
+.contact-section button {
+  background: #e50914;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.contact-section button:hover {
+  background: #f40612;
+}
+
+.netflix-intro {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: black;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.intro-bg {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.netflix-logo {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  font-size: 4rem;
+  font-weight: bold;
+  color: #e50914;
+}
+
+.letter {
+  opacity: 0;
+  transform: scale(0.5) rotateY(90deg);
+  transition: all 0.5s ease;
+}
+
+.letter.visible {
+  opacity: 1;
+  transform: scale(1) rotateY(0deg);
+}
+
+.tagline {
+  position: absolute;
+  top: 60%;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 1.5rem;
+  color: white;
+  opacity: 0;
+  transition: opacity 1s ease;
+}
+
+.tagline.visible {
+  opacity: 1;
+}
+
+.banner {
+  position: relative;
+  height: 70vh;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  padding: 0 50px;
+}
+
+.banner::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 7rem;
+  background: linear-gradient(to top, #111, transparent);
+}
+
+.banner-content {
+  position: relative;
+  z-index: 1;
+  max-width: 500px;
+}
+
+.banner-title {
+  font-size: 3rem;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.banner-description {
+  font-size: 1.2rem;
+  line-height: 1.5;
+  margin-bottom: 20px;
+}
+
+.play-btn, .info-btn {
+  background: rgba(255,255,255,0.8);
+  color: black;
+  border: none;
+  padding: 10px 20px;
+  margin-right: 10px;
+  border-radius: 4px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.play-btn:hover, .info-btn:hover {
+  background: white;
+}
+
+.row {
+  margin: 20px 50px;
+}
+
+.row-title {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+}
+
+.row-posters {
+  display: flex;
+  gap: 10px;
+  overflow-x: scroll;
+  overflow-y: hidden;
+  padding: 20px 0;
+}
+
+.row-posters::-webkit-scrollbar {
+  display: none;
+}
+
+.movie-card {
+  position: relative;
+  cursor: pointer;
+  transition: transform 0.3s;
+  min-width: 200px;
+}
+
+.movie-card:hover {
+  transform: scale(1.08);
+}
+
+.movie-card:hover .movie-card-overlay {
+  opacity: 1;
+}
+
+.movie-card img {
+  width: 100%;
+  border-radius: 4px;
+  object-fit: cover;
+}
+
+.movie-card-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0,0,0,0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.play-small-btn, .info-small-btn {
+  background: rgba(255,255,255,0.8);
+  color: black;
+  border: none;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  font-size: 1.2rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.play-small-btn:hover, .info-small-btn:hover {
+  background: white;
+}
+
+.movie-card p {
+  margin-top: 5px;
+  font-size: 0.9rem;
+}
+
+.trailer-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.9);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2000;
+}
+
+.netflix-player {
+  background: #000;
+  border-radius: 8px;
+  overflow: hidden;
+  position: relative;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.player-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  background: rgba(0,0,0,0.8);
+  color: white;
+}
+
+.player-header h3 {
+  margin: 0;
+  font-size: 1.2rem;
+}
+
+.player-controls {
+  display: flex;
+  gap: 10px;
+}
+
+.volume-btn, .fullscreen-btn {
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+  font-size: 1.2rem;
+}
+
+.player-footer {
+  padding: 10px 20px;
+  background: rgba(0,0,0,0.8);
+  color: white;
+}
+
+.progress-bar {
+  width: 100%;
+  height: 4px;
+  background: #333;
+  border-radius: 2px;
+  margin-bottom: 10px;
+  cursor: pointer;
+}
+
+.progress-fill {
+  height: 100%;
+  background: #e50914;
+  border-radius: 2px;
+  width: 30%;
+}
+
+.player-actions {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.play-pause-btn, .skip-btn {
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+  font-size: 1.2rem;
+}
+
+.time {
+  font-size: 0.9rem;
+  color: #ccc;
+}
+
+.close-btn {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: none;
+  border: none;
+  color: white;
+  font-size: 2rem;
+  cursor: pointer;
+}
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.9);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 3000;
+}
+
+.modal-content {
+  background: #111;
+  color: white;
+  width: 90%;
+  max-width: 800px;
+  max-height: 90vh;
+  overflow-y: auto;
+  border-radius: 8px;
+  position: relative;
+}
+
+.modal-header {
+  height: 300px;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: flex-end;
+  padding: 20px;
+  position: relative;
+}
+
+.modal-header::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 100px;
+  background: linear-gradient(to top, #111, transparent);
+}
+
+.modal-title {
+  position: relative;
+  z-index: 1;
+}
+
+.modal-title h1 {
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+}
+
+.modal-meta {
+  display: flex;
+  gap: 15px;
+  font-size: 0.9rem;
+}
+
+.modal-body {
+  padding: 20px;
+}
+
+.modal-overview {
+  font-size: 1.1rem;
+  line-height: 1.5;
+  margin-bottom: 20px;
+}
+
+.modal-cast h3 {
+  margin-bottom: 10px;
+}
+
+.cast-list {
+  display: flex;
+  gap: 15px;
+  overflow-x: scroll;
+  padding-bottom: 10px;
+}
+
+.cast-item {
+  min-width: 120px;
+  text-align: center;
+}
+
+.cast-item img {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 5px;
+}
+
+.cast-item p {
+  font-size: 0.8rem;
+  margin: 0;
+}
+
+.character {
+  color: #ccc;
+}
+
+.modal-info {
+  margin-top: 20px;
+}
+
+.modal-info p {
+  margin-bottom: 5px;
+}
